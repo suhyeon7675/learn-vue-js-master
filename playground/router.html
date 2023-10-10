@@ -9,10 +9,11 @@
 <body>
 	<div id="app">
 		<div>
-			<router-link to="/login">Login</router-link>
+			<router-link to="/login">Login</router-link> // 사용자가 클릭해서 페이지를 이동하게 해줌
 			<router-link to="/main">Main</router-link>
+			// 위 코드를 실행하면 화면에서는 <a> 태그로 변형되어 나옴
 		</div>
-		<router-view></router-view>
+		<router-view></router-view> // 컴포넌트가 뿌려지는 영역
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="https://unpkg.com/vue-router@3.5.3/dist/vue-router.js"></script>
@@ -23,13 +24,13 @@
 		var MainComponent = {
 			template: '<div>main</div>'
 		}
+		// 라우터 인스턴스 생성
 		var router = new VueRouter({ // 라우터 속성 정의
 			// 페이지의 라우팅 정보(어떤 URL로 이동했을 때 어떤 페이지가 뿌려질 지에 대한 정보. 배열로 담긴다)
 			routes: [
-			 // 페이지의 개수만큼 객체 필요
+				// 페이지의 개수만큼 객체 필요
 				{
 					path: '/login', // 페이지의 url
-					name: 'login',
 					component: LoginComponent // 해당 url에서 표시될 컴포넌트
 				},
 				{
@@ -38,6 +39,7 @@
 				}
 			]
 		});
+		// 인스턴스에 라우터 인스턴스를 등록
 		new Vue({
 			el: '#app',
 			router: router // Vue의 재사용 속성 (method, create 등등..)
